@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/main',function(){
-    return view('main');
-});
+Route::get('/main','MainViewController@index');
+
+Route::get('/home','MainViewController@home');
+Route::get('/item/{id}','MainViewController@item');
