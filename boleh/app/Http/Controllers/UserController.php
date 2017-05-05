@@ -14,8 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return $users;
+        $users = User::paginate(4);
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -59,7 +59,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $users = User::find($id);
-        return view('mainview.edit',compact('users'));
+        return view('users.edit',compact('users'));
     }
 
     /**
@@ -82,6 +82,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $users = User::find($id)->delete();
+        return redirect()->route('users.index');
     }
 }
