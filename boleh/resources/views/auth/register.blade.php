@@ -52,6 +52,14 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="address" class="col-md-4 control-label">Address</label>
 
@@ -81,11 +89,15 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                          <label for="role" class="col-md-4 control-label">Role</label>
+                          <div class="col-md-6">
+                            <div class="dropdown" class="form-control" name="role" required>
+                                <select name="role">
+                                  <option value="0">Pembeli</option>
+                                  <option value="1">Penjual</option>
+                                </select>
                             </div>
+                          </div>
                         </div>
 
                         <div class="form-group">

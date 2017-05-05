@@ -51,15 +51,16 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'address' => 'required|string|min:3',
-            'phone' => 'required|string|min:8',
+            'phone' => 'required|numeric|min:8',
             'password' => 'required|string|min:6|confirmed',
+            'role' => 'in:0,1,2',
         ]);
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data 
+     * @param  array  $data
      * @return User
      */
     protected function create(array $data)
@@ -68,8 +69,9 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'address' => $data['address'],
             'phone' => $data['phone'],
+            'address' => $data['address'],
+            'role' => $data['role'],
         ]);
     }
 }

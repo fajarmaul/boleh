@@ -19,13 +19,13 @@ class MainViewController extends Controller
 
     public function getOleh()
     {
-      $items = Item::where('type', 0)->get();     //first kalo spesifik 1 dang, misal fajar  , kalo all buat ambil semua data
+      $items = Item::where('type', 0)->paginate(4);     //first kalo spesifik 1 dang, misal fajar  , kalo all buat ambil semua data
       return view('mainview/landing', compact('items'));
     }
 
     public function getMakanan()
     {
-      $items = Item::where('type', 1)->get();
+      $items = Item::where('type', 1)->paginate(4);
       return view('mainview/landing', compact('items'));
     }
 

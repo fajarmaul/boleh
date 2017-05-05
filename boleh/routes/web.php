@@ -11,15 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','MainViewController@landing');
 
 //untuk tampilan awal
 Route::get('/main','MainViewController@main');
-Route::get('/landing','MainViewController@landing');
 Route::get('/oleh-oleh', 'MainViewController@getOleh');
 Route::get('/makanan', 'MainViewController@getMakanan');
+//user
+Route::resource('/users','UserController'); //restful controller
+
 
 Route::get('/item/{id}','MainViewController@item');
 Route::get('/login','MainViewController@login');
@@ -28,8 +28,7 @@ Route::get('/dashboard','MainViewController@dashboard');
 //crud
 Route::put('/{id}/update','CrudController@update');
 
-//user
-Route::resource('/users','UserController'); //restful controller
+
 //
 Auth::routes();
 Route::get('/admin','MainViewController@admin');

@@ -8,9 +8,14 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in! <br>
-                    <a href="landing" class="btn btn-lg btn-default" >Landing Page</a>
-                    <a href="main" class="btn btn-default btn-lg"> Tes </a>
+                    You are logged in as
+                    @if(Auth::check())
+                      @if(Auth::user()->role == 2)
+                        Admin
+                      @else
+                        User
+                      @endif
+                    @endif
                 </div>
             </div>
         </div>
